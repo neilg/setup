@@ -26,7 +26,7 @@ NV="akmod-nvidia"
 SSH="openssh-server openssh-clients"
 UTIL="iotop terminator gnome-tweak-tool trash-cli"
 VBOX="VirtualBox-4.2"
-WEB="flash-plugin $CHROME"
+WEB="flash-plugin $CHROME hotot"
 WINE="wine"
 
 GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly"
