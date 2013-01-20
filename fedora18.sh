@@ -32,10 +32,9 @@ YUM="yum-plugin-show-leaves"
 GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly"
 GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly"
 
-MEDIA="libdvdcss $GSTREAMER $GSTREAMER1"
+MEDIA="libdvdcss $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
 yum -y install $KM_SUPPORT $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA
 
-yum -y clean all
 yum -y update
 
