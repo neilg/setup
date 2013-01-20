@@ -18,16 +18,16 @@ DROPBOX=https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.4.0-1.fedor
 CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 
 KM_SUPPORT="dkms make gcc kernel-devel"
-SSH="openssh-server openssh-clients"
+YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
-JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven"
 GIT="git git-svn gitg git-all"
+JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven"
+NV="akmod-nvidia"
+SSH="openssh-server openssh-clients"
+UTIL="iotop terminator gnome-tweak-tool trash-cli"
 VBOX="VirtualBox-4.2"
 WEB="flash-plugin $CHROME"
-NV="akmod-nvidia"
-UTIL="iotop terminator gnome-tweak-tool trash-cli"
 WINE="wine"
-YUM="yum-plugin-show-leaves"
 
 GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly"
 GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly"
