@@ -22,6 +22,7 @@ YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
 GIT="git git-svn gitg git-all"
 JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven"
+NET="whois wireshark-gnome"
 NV="akmod-nvidia"
 SSH="openssh-server openssh-clients"
 UTIL="iotop terminator gnome-tweak-tool trash-cli"
@@ -34,7 +35,7 @@ GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly
 
 MEDIA="libdvdcss $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $KM_SUPPORT $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA
+yum -y install $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA
 
 yum -y update
 
