@@ -1,21 +1,43 @@
 #!/bin/bash
 
-yum -y install yum-plugin-fastestmirror
+installed() {
+  if [[ $( rpm -qa $1 ) == *${1}* ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+yum -y install yum-plugin-fastestmirror wget
 yum -y update
 
-RPMF_FREE=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm
-RPMF_NONFREE=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm
-LIVNA=http://rpm.livna.org/livna-release.rpm
-ADOBE=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+if ! installed rpmfusion-free-release; then
+  REPOS="$REPOS http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm"
+fi
+if ! installed rpmfusion-nonfree-release; then
+  REPOS="$REPOS http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm"
+fi
+if ! installed livna-release; then
+  REPOS="$REPOS http://rpm.livna.org/livna-release.rpm"
+fi
+if ! installed adobe-release-x86_64; then
+  REPOS="$REPOS http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm"
+fi
+if [ ! -z "$REPOS" ]; then
+  echo "installing $REPOS"
+  yum -y install $REPOS
+fi
 
-yum -y install $RPMF_FREE $RPMF_NONFREE $LIVNA $ADOBE
-
-yum -y install wget && wget -N -P /etc/yum.repos.d http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+wget -N -P /etc/yum.repos.d http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 
 yum -y update
 
-DROPBOX=https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.4.0-1.fedora.x86_64.rpm
-CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+if ! installed nautilus-dropbox; then
+  DROPBOX=https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.4.0-1.fedora.x86_64.rpm
+fi
+if ! installed google-chrome-stable; then
+  CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+fi
 
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
