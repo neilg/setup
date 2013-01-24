@@ -38,6 +38,9 @@ fi
 if ! installed google-chrome-stable; then
   CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 fi
+if ! installed skype; then # this isn't quite right, as another version of skype may be installed
+  SKYPE=http://download.skype.com/linux/skype-4.1.0.20-fedora.i586.rpm
+fi
 
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
@@ -57,7 +60,10 @@ GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly
 
 MEDIA="libdvdcss $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA
+yum -y install $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE
 
 yum -y update
+
+sudo systemctl enable sshd.service
+sudo systemctl start sshd.service
 
