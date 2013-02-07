@@ -42,15 +42,16 @@ if ! installed skype; then # this isn't quite right, as another version of skype
   SKYPE=http://download.skype.com/linux/skype-4.1.0.20-fedora.i586.rpm
 fi
 
+CLAM="clamav clamav-update"
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
 GIT="git git-svn gitg git-all"
 JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven visualvm"
-NET="whois wireshark-gnome"
+NET="whois wireshark-gnome corkscrew telnet"
 NV="akmod-nvidia"
 SSH="openssh-server openssh-clients"
-UTIL="iotop terminator gnome-tweak-tool trash-cli powertop units"
+UTIL="iotop terminator gnome-tweak-tool trash-cli powertop units pbzip2 spawn"
 VBOX="VirtualBox-4.2"
 WEB="flash-plugin $CHROME hotot"
 WINE="wine"
@@ -60,7 +61,7 @@ GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly
 
 MEDIA="libdvdcss $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE
+yum -y install $DROPBOX $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM
 
 yum -y update
 
