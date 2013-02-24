@@ -85,10 +85,7 @@ VBOX="VirtualBox-4.2"
 WEB="flash-plugin $CHROME hotot"
 #WINE="wine"
 
-
-gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras
-
-GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-plugins-bad-free-extras gstreamer-plugins-good-extras gstreamer-plugins-bad gstreamer-plugins-bad-nonfree"
+GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-nonfree"
 GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras"
 DVD="libdvdcss  libdvdread libdvdnav"
 
