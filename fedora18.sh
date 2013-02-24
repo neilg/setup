@@ -8,6 +8,31 @@ installed() {
   fi
 }
 
+fail() {
+  echo "$1"
+  if [ -z $2 ]; then
+    EXIT_CODE=-1
+  else
+    EXIT_CODE=$2
+  fi
+  exit $EXIT_CODE
+}
+
+while getopts ":h:" option; do
+  case $option in
+    h)
+      echo setting hostname to $OPTARG
+      hostname "$OPTARG" || fail "couldn't set hostname to $OPTARG"
+      echo $OPTARG > /etc/hostname
+      ;;
+    *)
+      echo UNKNOWN ARG $OPTARG at position $OPTIND
+      echo exiting
+      exit -1
+      ;;
+  esac
+done
+
 yum -y install yum-plugin-fastestmirror wget
 yum -y update
 
@@ -38,15 +63,19 @@ fi
 if ! installed google-chrome-stable; then
   CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 fi
-if ! installed skype; then # this isn't quite right, as another version of skype may be installed
+# skype and sbt don't set up their own repos, so subsequent updates aren't dealt with
+if ! installed skype; then
   SKYPE=http://download.skype.com/linux/skype-4.1.0.20-fedora.i586.rpm
+fi
+if ! installed sbt; then
+  SBT=http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.2/sbt.rpm
 fi
 
 CLAM="clamav clamav-update"
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
-GIT="git git-svn gitg git-all"
+GIT="git git-svn gitg git-all tig"
 JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven visualvm"
 NET="whois wireshark-gnome corkscrew telnet"
 NV="akmod-nvidia"
@@ -54,14 +83,18 @@ SSH="openssh-server openssh-clients"
 UTIL="iotop terminator gnome-tweak-tool trash-cli powertop units pbzip2 spawn"
 VBOX="VirtualBox-4.2"
 WEB="flash-plugin $CHROME hotot"
-WINE="wine"
+#WINE="wine"
 
-GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly"
-GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly"
 
-MEDIA="libdvdcss $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
+gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras
 
-yum -y install $DROPBOX $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM
+GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-plugins-bad-free-extras gstreamer-plugins-good-extras gstreamer-plugins-bad gstreamer-plugins-bad-nonfree"
+GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras"
+DVD="libdvdcss  libdvdread libdvdnav"
+
+MEDIA="$DVD $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
+
+yum -y install $DROPBOX $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT
 
 yum -y update
 
