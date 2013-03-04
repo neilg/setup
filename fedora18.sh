@@ -22,8 +22,7 @@ while getopts ":h:" option; do
   case $option in
     h)
       echo setting hostname to $OPTARG
-      hostname "$OPTARG" || fail "couldn't set hostname to $OPTARG"
-      echo $OPTARG > /etc/hostname
+      hostnamectl --static --transient set-hostname "$OPTARG" || fail "couldn't set hostname to $OPTARG"
       ;;
     *)
       echo UNKNOWN ARG $OPTARG at position $OPTIND
