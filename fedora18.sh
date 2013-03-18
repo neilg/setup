@@ -85,7 +85,7 @@ WEB="flash-plugin $CHROME hotot"
 #WINE="wine"
 
 GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-nonfree"
-GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras"
+GSTREAMER1="gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-ugly gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras"
 DVD="libdvdcss  libdvdread libdvdnav"
 
 MEDIA="$DVD $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
