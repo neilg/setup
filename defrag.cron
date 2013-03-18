@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 btrfs_root_volumes=/mnt/HDD
 for btrfs_root_volume in $btrfs_root_volumes; do
   volumes=`btrfs subvolume list "$btrfs_root_volume" | awk '{print $9}'`
@@ -6,4 +6,3 @@ for btrfs_root_volume in $btrfs_root_volumes; do
     find "$btrfs_root_volume"/$vol -xdev \( -type d -o -type f \) -print -exec btrfs file defrag "{}" \;
   done
 done
-
