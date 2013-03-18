@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for mountpoint in / /boot /home /var/lib/mysql ; do
+  /usr/sbin/fstrim "$mountpoint"
+done
