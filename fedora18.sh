@@ -47,6 +47,9 @@ fi
 if ! installed adobe-release-x86_64; then
   REPOS="$REPOS http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm"
 fi
+if ! installed infinality-repo; then
+  REPOS="$REPOS http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm"
+fi
 if [ ! -z "$REPOS" ]; then
   echo "installing $REPOS"
   yum -y install $REPOS
@@ -71,6 +74,7 @@ if ! installed sbt; then
 fi
 
 CLAM="clamav clamav-update"
+FONTS="freetype-infinality fontconfig-infinality"
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
@@ -90,7 +94,7 @@ DVD="libdvdcss  libdvdread libdvdnav"
 
 MEDIA="$DVD $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $DROPBOX $KM_SUPPORT $NET $SSH $EDITORS $JAVA $GIT $VBOX $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT
+yum -y install $VBOX $JAVA $DROPBOX $FONTS $KM_SUPPORT $NET $SSH $EDITORS $GIT $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT
 
 yum -y update
 
