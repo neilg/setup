@@ -70,7 +70,7 @@ if ! installed skype; then
   SKYPE=http://download.skype.com/linux/skype-4.1.0.20-fedora.i586.rpm
 fi
 if ! installed sbt; then
-  SBT=http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.2/sbt.rpm
+  SBT=http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.3/sbt.rpm
 fi
 
 CLAM="clamav clamav-update"
