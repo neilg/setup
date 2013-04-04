@@ -60,7 +60,7 @@ wget -N -P /etc/yum.repos.d http://download.virtualbox.org/virtualbox/rpm/fedora
 yum -y update
 
 if ! installed nautilus-dropbox; then
-  DROPBOX=https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.4.0-1.fedora.x86_64.rpm
+  DROPBOX=https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.6.0-1.fedora.x86_64.rpm
 fi
 if ! installed google-chrome-stable; then
   CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
