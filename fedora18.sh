@@ -75,6 +75,8 @@ fi
 
 CLAM="clamav clamav-update"
 FONTS="freetype-infinality fontconfig-infinality"
+GPS="foxtrotgps gpsd gpsd-clients"
+GOBI="gobi_loader"
 KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
@@ -94,7 +96,7 @@ DVD="libdvdcss  libdvdread libdvdnav"
 
 MEDIA="$DVD $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $VBOX $JAVA $DROPBOX $FONTS $KM_SUPPORT $NET $SSH $EDITORS $GIT $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT
+yum -y install $VBOX $JAVA $DROPBOX $FONTS $KM_SUPPORT $NET $SSH $EDITORS $GIT $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT $GPS $GOBI
 
 yum -y update
 
