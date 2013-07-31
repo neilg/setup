@@ -32,7 +32,7 @@ while getopts ":h:" option; do
   esac
 done
 
-yum -y install yum-plugin-fastestmirror wget
+yum -y install yum-plugin-fastestmirror
 yum -y update
 
 if ! installed rpmfusion-free-release; then
@@ -88,7 +88,7 @@ NV="akmod-nvidia"
 SSH="openssh-server openssh-clients"
 UTIL="iotop terminator gnome-tweak-tool trash-cli powertop units pbzip2 spawn htop"
 VBOX="VirtualBox-4.2"
-WEB="flash-plugin $CHROME chromium"
+WEB="flash-plugin $CHROME chromium wget"
 #WINE="wine"
 
 GSTREAMER="gstreamer-ffmpeg gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-nonfree"
