@@ -82,9 +82,11 @@ KM_SUPPORT="dkms make gcc kernel-devel"
 YUM="yum-plugin-show-leaves"
 EDITORS="vim emacs"
 GIT="git git-svn gitg git-all tig"
+GUEST="xguest"
+HASKELL="haskell-platform cabal-dev"
 JAVA="java-1.7.0-openjdk-devel java-1.7.0-openjdk-src maven visualvm"
 NET="whois wireshark-gnome corkscrew telnet"
-NV="akmod-nvidia"
+#NV="akmod-nvidia"
 SSH="openssh-server openssh-clients"
 UTIL="iotop terminator gnome-tweak-tool trash-cli powertop units pbzip2 spawn htop"
 VBOX="VirtualBox-4.2"
@@ -97,7 +99,7 @@ DVD="libdvdcss libdvdread libdvdnav"
 
 MEDIA="$DVD $GSTREAMER $GSTREAMER1 get-flash-videos get_iplayer vlc"
 
-yum -y install $VBOX $JAVA $DROPBOX $FONTS $KM_SUPPORT $NET $SSH $EDITORS $GIT $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT $GPS $GOBI
+yum -y install $VBOX $JAVA $DROPBOX $FONTS $KM_SUPPORT $NET $SSH $EDITORS $GIT $WEB $NV $UTIL $WINE $YUM $MEDIA $SKYPE $CLAM $SBT $GPS $GOBI $HASKEL $GUEST
 
 yum -y update
 
