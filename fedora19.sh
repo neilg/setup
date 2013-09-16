@@ -68,7 +68,7 @@ if ! installed google-chrome-stable; then
 fi
 # skype and sbt don't set up their own repos, so subsequent updates aren't dealt with
 if ! installed skype; then
-  SKYPE=http://download.skype.com/linux/skype-4.2.0.11-fedora.i586.rpm
+  SKYPE=http://download.skype.com/linux/skype-4.2.0.11-fedora.i586.rpm alsa-lib.i686 libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-libs.i686 pulseaudio-libs-glib2.i686 alsa-plugins-pulseaudio.i686 qtwebkit.i686
 fi
 if ! installed sbt; then
   SBT=http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.4/sbt.rpm
