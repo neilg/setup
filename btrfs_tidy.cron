@@ -1,0 +1,17 @@
+#!/bin/sh
+
+volume=/mnt/HDD
+volumes=". `btrfs subvolume list "$volume" | awk '{print $9}'`"
+for vol in $volumes; do
+#  find "$volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag -clzo "{}" \;
+  find "$volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag "{}" \;
+done
+
+volume=/mnt/SSD
+volumes=". `btrfs subvolume list "$volume" | awk '{print $9}'`"
+for vol in $volumes; do
+  find "$volume"/$vol -xdev \( -type d \) -exec btrfs file defrag "{}" \;
+done
+
+bedup dedup
+
