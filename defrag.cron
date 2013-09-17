@@ -1,9 +1,16 @@
 #!/bin/sh
-btrfs_root_volumes=/mnt/HDD
-for btrfs_root_volume in $btrfs_root_volumes; do
-  volumes=`btrfs subvolume list "$btrfs_root_volume" | awk '{print $9}'`
-  for vol in $volumes; do
-#    find "$btrfs_root_volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag -clzo "{}" \;
-    find "$btrfs_root_volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag "{}" \;
-  done
+
+#btrfs_root_volumes=/mnt/HDD
+#for btrfs_root_volume in $btrfs_root_volumes; do
+#  volumes=`btrfs subvolume list "$btrfs_root_volume" | awk '{print $9}'`
+#  for vol in $volumes; do
+##    find "$btrfs_root_volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag -clzo "{}" \;
+#    find "$btrfs_root_volume"/$vol -xdev \( -type d -o -type f \) -exec btrfs file defrag "{}" \;
+#  done
+#done
+
+volume=/mnt/HDD
+subvolumes=". `btrfs subvol list "$volume" | awk '{print $9}'`"
+for subvol in $subvolumes; do
+  find "$volume"/"$subvol" -xdev \( -type d -o -type f \) -exec btrfs file defrag "{}" \;
 done
