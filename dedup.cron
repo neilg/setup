@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bedup dedup --defrag /mnt/HDD
+bedup dedup /mnt/SSD
+
