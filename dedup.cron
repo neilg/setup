@@ -1,5 +1,4 @@
 #!/bin/sh
 
-bedup dedup --defrag /mnt/HDD
-bedup dedup /mnt/SSD
-
+bedup dedup --defrag /mnt/HDD > /dev/null
+bedup dedup /mnt/SSD > /dev/null
