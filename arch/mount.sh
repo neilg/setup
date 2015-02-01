@@ -16,10 +16,10 @@ export archp="$m2"3
 
 swapon "$swapp"
 mount "$archp" /mnt -o defaults,discard,subvol=@root
-mkdir /mnt/boot
+mkdir -p /mnt/boot
 mount "$esp" /mnt/boot -o defaults,discard
-mkdir /mnt/home
+mkdir -p /mnt/home
 mount "$ssd1" /mnt/home -o defaults,discard,subvol=@home
-mkdir /mnt/var
+mkdir -p /mnt/var
 mount "$ssd1" /mnt/var -o defaults,discard,subvol=@var
 
