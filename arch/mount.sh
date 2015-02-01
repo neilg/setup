@@ -15,11 +15,11 @@ export swapp="$m2"2
 export archp="$m2"3
 
 swapon "$swapp"
-mount "$archp" /mnt -o defaults,discard,subvol=@root
+mount "$archp" /mnt -o noatime,subvol=@root
 mkdir -p /mnt/boot
-mount "$esp" /mnt/boot -o defaults,discard
+mount "$esp" /mnt/boot -o noatime
 mkdir -p /mnt/home
-mount "$ssd1" /mnt/home -o defaults,discard,subvol=@home
+mount "$ssd1" /mnt/home -o noatime,subvol=@home
 mkdir -p /mnt/var
-mount "$ssd1" /mnt/var -o defaults,discard,subvol=@var
+mount "$ssd1" /mnt/var -o noatime,subvol=@var
 

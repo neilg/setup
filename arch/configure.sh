@@ -19,3 +19,7 @@ echo $hostname > /etc/hostname
 sed -i "/^127\.0\.0\.1/ s/$/ ${hostname}/" /etc/hosts
 sed -i "/^::1/          s/$/ ${hostname}/" /etc/hosts
 
+cat > /etc/cron.weekly/fstrim.cron << EOF
+#!/bin/sh
+/usr/bin/fstrim -av
+EOF
