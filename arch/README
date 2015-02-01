@@ -1,0 +1,10 @@
+run
+  fs.sh
+  mount.sh
+  install_target.sh
+
+arch-chroot /mnt /bin/bash
+
+grab the repo again
+  configure.sh
+  grub.sh
