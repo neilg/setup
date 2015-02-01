@@ -26,3 +26,5 @@ EOF
 chmod +x /etc/cron.weekly/fstrim.cron
 
 passwd
+
+systemctl enable NetworkManager.service
