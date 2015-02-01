@@ -24,10 +24,10 @@ export swapp="$m2"2
 export archp="$m2"3
 mkfs.vfat -F32 "$esp"
 mkswap "$swapp"
-mkfs.btrfs "$archp"
+mkfs.btrfs -f "$archp"
 
 #create filesystems on ssds
-mkfs.btrfs -d raid1 -m raid1 "$ssd1" "$ssd2"
+mkfs.btrfs -f -d raid1 -m raid1 "$ssd1" "$ssd2"
 
 #create subvolumes
 umount /mnt
