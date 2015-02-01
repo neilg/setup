@@ -23,3 +23,4 @@ cat > /etc/cron.weekly/fstrim.cron << EOF
 #!/bin/sh
 /usr/bin/fstrim -av
 EOF
+chmod +x /etc/cron.weekly/fstrim.cron
