@@ -10,6 +10,10 @@ if [ -z $m2 ] || [ -z $ssd1 ] || [ -z $ssd2 ]; then
   exit 1
 fi
 
+export esp="$m2"1
+export swapp="$m2"2
+export archp="$m2"3
+
 # wipe and create partition table on m2
 sgdisk "$m2" -Z
 sgdisk "$m2" -og
@@ -19,9 +23,6 @@ sgdisk "$m2" -n 2:+0:+24G -t 2:8200 -c 2:"Linux swap"
 sgdisk "$m2" -n 3:+0:-0 -t 3:8300 -c 3:"Arch Linux"
 
 #create filesystems on m2
-export esp="$m2"1
-export swapp="$m2"2
-export archp="$m2"3
 mkfs.vfat -F32 "$esp"
 mkswap "$swapp"
 mkfs.btrfs -f "$archp"
