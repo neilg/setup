@@ -10,7 +10,8 @@ if [ -z $m2 ] || [ -z $ssd1 ] || [ -z $ssd2 ]; then
   exit 1
 fi
 
-# create partition table on m2
+# wipe and create partition table on m2
+sgdisk "$m2" -Z
 sgdisk "$m2" -og
 # create partitions on m2
 sgdisk "$m2" -n 1:+0:+512M -t 1:ef00 -c 1:"EFI system partition"
