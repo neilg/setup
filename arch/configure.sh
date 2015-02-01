@@ -24,3 +24,5 @@ cat > /etc/cron.weekly/fstrim.cron << EOF
 /usr/bin/fstrim -av
 EOF
 chmod +x /etc/cron.weekly/fstrim.cron
+
+passwd
